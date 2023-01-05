@@ -15,6 +15,8 @@
 # specific language governing permissions and limitations
 # under the License.
 
+import typing
+
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoSuchFrameException
 from selenium.common.exceptions import NoSuchWindowException
@@ -65,7 +67,7 @@ class SwitchTo:
         """
         self._driver.execute(Command.SWITCH_TO_FRAME, {"id": None})
 
-    def frame(self, frame_reference) -> None:
+    def frame(self, frame_reference: typing.Union[str, WebElement]) -> None:
         """Switches focus to the specified frame, by index, name, or
         webelement.
 
